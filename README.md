@@ -17,13 +17,36 @@ This codebase is built modularly to promote future research (as opposed to a mor
 
 ## Installation
 
-Simply run
+### Option 1: Using Conda (Recommended)
 
-```
+```bash
 conda env create -f environment.yml
+conda activate sedd
 ```
 
-which will create a ```sedd``` environment with packages installed. Note that this installs with CUDA 11.8, and different CUDA versions must be installed manually. The biggest factor is making sure that the ```torch``` and ```flash-attn``` packages use the same CUDA version (more found [here](https://github.com/Dao-AILab/flash-attention)).
+### Option 2: Using pip
+
+```bash
+# Create virtual environment
+python -m venv sedd_env
+source sedd_env/bin/activate  # On Windows: sedd_env\Scripts\activate
+
+# Install PyTorch with CUDA 11.8
+pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118
+
+# Install other requirements
+pip install -r requirements.txt
+```
+
+### Option 3: Minimal Installation
+
+For a minimal setup with only essential dependencies:
+
+```bash
+pip install -r requirements-minimal.txt
+```
+
+**Note**: This installs with CUDA 11.8. For different CUDA versions, adjust the PyTorch installation accordingly. Ensure that `torch` and `flash-attn` packages use the same CUDA version (more info [here](https://github.com/Dao-AILab/flash-attention)).
 
 ## Working with Pretrained Models
 
