@@ -1,0 +1,11 @@
+{
+  "Original_AEGUD": {
+    "error": "stack expects each tensor to be equal size, but got [64] at entry 0 and [60] at entry 3"
+  },
+  "Enhanced_AEGUD_Best": {
+    "error": "stack expects each tensor to be equal size, but got [64] at entry 0 and [60] at entry 3"
+  },
+  "Baseline_Uniform": {
+    "error": "stack expects each tensor to be equal size, but got [64] at entry 0 and [60] at entry 7"
+  }
+}

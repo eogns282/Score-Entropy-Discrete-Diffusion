@@ -1,0 +1,11 @@
+{
+  "Original_AEGUD": {
+    "error": "shape '[-1, 500]' is invalid for input of size 1024"
+  },
+  "Enhanced_AEGUD_Best": {
+    "error": "The size of tensor a (64) must match the size of tensor b (128) at non-singleton dimension 1"
+  },
+  "Baseline_Uniform": {
+    "error": "shape '[-1, 500]' is invalid for input of size 1024"
+  }
+}
