@@ -49,3 +49,31 @@ def score_entropy_loss(model, x_0, graph, noise, sampling_eps=1e-3):
     loss = (dsigma[:, None] * loss).sum(dim=-1)
     
     return loss.mean()
+
+
+class SimpleLoss:
+    """Simple loss class wrapper for experiments."""
+    
+    def __init__(self):
+        pass
+    
+    def __call__(self, score, x_t, x_0, sigma, graph):
+        """
+        Compute loss given score and other inputs.
+        
+        Args:
+            score: Model output (log scores)
+            x_t: Perturbed data
+            x_0: Clean data
+            sigma: Noise level
+            graph: Graph instance
+            
+        Returns:
+            loss: Scalar loss
+        """
+        # Compute score entropy loss
+        # sigma is already shape (batch_size,), so add dimension for broadcasting
+        loss = graph.score_entropy(score, sigma[:, None], x_t, x_0)
+        
+        # Average over sequence length and batch
+        return loss.mean()
